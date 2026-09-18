@@ -12335,8 +12335,8 @@ Name: liquidaci_n, dtype: object</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Punto-2:-Estrategia-de-an%C3%A1lisis">Punto 2: Estrategia de análisis<a class="anchor-link" href="#Punto-2:-Estrategia-de-an%C3%A1lisis">¶</a></h2><p>La estrategia se va a enfocar en identificar si algunas características conocidas desde el inicio del contrato están asociadas con desviaciones posteriores en su ejecución. Se van a analizar tres señales principales: las adiciones de plazo, el porcentaje del valor contractual que queda pendiente de pago en los contratos finalizados, y los contratos terminados o cerrados que no aparecen liquidados. Estas señales se van a comparar principalmente con valor_del_contrato, modalidad_de_contratacion, sector y destino_gasto, buscando características que después puedan usarse como criterios de focalización. El análisis va a comenzar con proporciones, medianas y cuantiles, y va a continuar con tablas cruzadas y gráficos de barras para las variables categóricas, y con boxplots, scatterplots y correlaciones para las cuantitativas. Dado que en el punto anterior ya se encontró una fuerte asimetría y presencia de valores extremos, se le va a dar más peso a medianas, cuantiles y correlación de Spearman; Pearson solo se va a usar cuando la relación observada sea aproximadamente lineal.</p>
-<p>Además del análisis descriptivo, se van a formular hipótesis explícitas para algunas de las relaciones más relevantes. Por ejemplo, para las variables cuantitativas se plantea H0: no existe asociación entre la característica del contrato y la desviación analizada, frente a H1: sí existe asociación. Estas hipótesis se van a contrastar estadísticamente, y se van a reportar tanto los resultados significativos como los que no lo sean. Las relaciones entre varias variables cuantitativas se podrán resumir mediante una matriz y un mapa de calor de correlaciones, mientras que las diferencias entre categorías se van a mostrar con tablas y visualizaciones comparativas. Al final, los resultados se van a interpretar como asociaciones y no como relaciones causales, buscando los patrones que permitan proponer criterios concretos para priorizar la supervisión.</p>
+<h2 id="Punto-2:-Estrategia-de-an%C3%A1lisis">Punto 2: Estrategia de análisis<a class="anchor-link" href="#Punto-2:-Estrategia-de-an%C3%A1lisis">¶</a></h2><p>La estrategia se va a enfocar en identificar si algunas características conocidas desde el inicio del contrato están asociadas con desviaciones posteriores en su ejecución. Se van a analizar tres señales principales: las adiciones de plazo, el porcentaje del valor contractual que queda pendiente de pago en los contratos finalizados, y los contratos terminados o cerrados que no aparecen liquidados. Estas señales se van a comparar principalmente con valor_del_contrato, modalidad_de_contratacion, sector y destino_gasto, buscando características que después puedan usarse como criterios de focalización. El análisis va a comenzar con proporciones, medianas y cuantiles, y va a continuar con tablas cruzadas y gráficos de barras para las variables categóricas, y con scatterplots, visualizaciones comparativas de medianas y medidas de correlación para las cuantitativas. Dado que en el punto anterior ya se había encontrado una fuerte asimetría y presencia de valores extremos, se le va a dar más peso a medianas, cuantiles y correlación de Spearman, y Pearson solo se va a usar si la relación entre dos variables cuantitativas resulta aproximadamente lineal.</p>
+<p>Además del análisis descriptivo, se van a formular hipótesis explícitas para algunas de las relaciones más relevantes. Para las variables cuantitativas se plantea, de manera general, H0: no existe asociación entre la característica del contrato y la desviación analizada, frente a H1: sí existe asociación. Estas hipótesis se van a contrastar estadísticamente, y se van a reportar tanto los resultados significativos como los que no lo sean. Las relaciones entre varias variables cuantitativas se van a resumir con una matriz y un mapa de calor de correlaciones, mientras que las diferencias entre categorías se van a mostrar con tablas cruzadas, porcentajes y visualizaciones comparativas. Al final, los resultados se van a interpretar como asociaciones y no como relaciones causales, buscando los patrones que permitan proponer criterios concretos para priorizar la supervisión.</p>
 </div>
 </div>
 </div>
@@ -13182,7 +13182,7 @@ p-valor: 0.0
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><em>pct_pendiente vs modalidad_de_contratacion</em></p>
-<p>A continuación se analiza si el porcentaje pendiente de pago de los contratos finalizados cambia según la modalidad de contratación. Para esta comparación se usa la mediana, dado que la distribución que se vio antes tiene una fuerte concentración en 0% y 100%. También se usa un boxplot para comparar cómo se distribuye el porcentaje pendiente entre las distintas modalidades.</p>
+<p>A continuación se analiza si el porcentaje pendiente de pago de los contratos finalizados cambia según la modalidad de contratación. Para esta comparación se usa la mediana, dado que la distribución que se vio antes tiene una fuerte concentración en 0% y 100%.También se utiliza una visualización de las medianas por modalidad, ya que la fuerte concentración del porcentaje pendiente en valores cercanos a 0% y 100% hace que el boxplot sea poco informativo para esta comparación.</p>
 </div>
 </div>
 </div>
@@ -14237,6 +14237,17 @@ Name: count, dtype: int64</pre>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=03fa9162">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>No se utilizó la correlación de Pearson ya que los scatterplots no mostraron relaciones aproximadamente lineales y las variables cuantitativas presentaron una fuerte asimetría. Por esta razón, se utilizó la correlación de Spearman en los análisis cuantitativos.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9d0d81fa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14347,6 +14358,165 @@ p-valor: 0.24338033501602213
 <p>La correlación de Spearman entre dias_adicionados y pct_pendiente fue de -0,0037, un valor prácticamente igual a cero, lo que indica que no hay una relación monotónica entre las dos variables.</p>
 <p>El valor p fue de 0,243, superior al nivel de significancia de 0,05, así que no se rechaza H0 y no se encuentra evidencia estadística suficiente para decir que existe una asociación entre los días adicionados y el porcentaje pendiente de pago en los contratos finalizados analizados.</p>
 <p>Esto indica que una mayor cantidad de días adicionados no necesariamente viene acompañada de un mayor o menor porcentaje pendiente de pago. Por lo tanto, las desviaciones de plazo y de ejecución presupuestal parecen comportarse de manera independiente en este análisis, y pueden representar señales distintas para la focalización de la supervisión.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2b52ebcc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Resumen de las pruebas de hipotesis</strong></p>
+<p>A continuación se resumen las pruebas de hipótesis que se hicieron para las relaciones entre variables cuantitativas, usando un nivel de significancia de 0,05: cuando el valor p es menor a 0,05 se rechaza H0, y si no, no se rechaza.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=72bbcbbc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [120]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">rho_1</span><span class="p">,</span> <span class="n">p_1</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">analisis_df</span><span class="p">[</span><span class="s2">"valor_del_contrato"</span><span class="p">],</span><span class="n">analisis_df</span><span class="p">[</span><span class="s2">"dias_adicionados"</span><span class="p">])</span>
+
+<span class="n">rho_2</span><span class="p">,</span> <span class="n">p_2</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">finalizados_pago</span><span class="p">[</span><span class="s2">"valor_del_contrato"</span><span class="p">],</span><span class="n">finalizados_pago</span><span class="p">[</span><span class="s2">"pct_pendiente"</span><span class="p">])</span>
+
+<span class="n">rho_3</span><span class="p">,</span> <span class="n">p_3</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">finalizados_pago</span><span class="p">[</span><span class="s2">"dias_adicionados"</span><span class="p">],</span><span class="n">finalizados_pago</span><span class="p">[</span><span class="s2">"pct_pendiente"</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1704b761">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [121]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">resumen_hipotesis</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"Relación"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">"Valor del contrato vs. días adicionados"</span><span class="p">,</span>
+        <span class="s2">"Valor del contrato vs. % pendiente"</span><span class="p">,</span>
+        <span class="s2">"Días adicionados vs. % pendiente"</span>
+    <span class="p">],</span>
+    <span class="s2">"Spearman"</span><span class="p">:</span> <span class="p">[</span><span class="n">rho_1</span><span class="p">,</span> <span class="n">rho_2</span><span class="p">,</span> <span class="n">rho_3</span><span class="p">],</span>
+    <span class="s2">"p-valor"</span><span class="p">:</span> <span class="p">[</span><span class="n">p_1</span><span class="p">,</span> <span class="n">p_2</span><span class="p">,</span> <span class="n">p_3</span><span class="p">],</span>
+    <span class="s2">"Decisión"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">"Se rechaza H0"</span> <span class="k">if</span> <span class="n">p_1</span> <span class="o">&lt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">"No se rechaza H0"</span><span class="p">,</span>
+        <span class="s2">"Se rechaza H0"</span> <span class="k">if</span> <span class="n">p_2</span> <span class="o">&lt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">"No se rechaza H0"</span><span class="p">,</span>
+        <span class="s2">"Se rechaza H0"</span> <span class="k">if</span> <span class="n">p_3</span> <span class="o">&lt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">"No se rechaza H0"</span>
+    <span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">resumen_hipotesis</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[121]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Relación</th>
+<th>Spearman</th>
+<th>p-valor</th>
+<th>Decisión</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Valor del contrato vs. días adicionados</td>
+<td>0.186366</td>
+<td>0.000000e+00</td>
+<td>Se rechaza H0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Valor del contrato vs. % pendiente</td>
+<td>0.053984</td>
+<td>6.174486e-66</td>
+<td>Se rechaza H0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Días adicionados vs. % pendiente</td>
+<td>-0.003675</td>
+<td>2.433803e-01</td>
+<td>No se rechaza H0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6746b50f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Las pruebas dan resultados distintos dependiendo de la relación que se analice. Por un lado, se encontró una asociación estadísticamente significativa entre el valor del contrato y los días adicionados, aunque con una magnitud débil (rho = 0,186), y también apareció una asociación significativa entre el valor del contrato y el porcentaje pendiente de pago, pero con una correlación muy cercana a cero (rho = 0,054), así que aunque estadísticamente existe, su importancia práctica termina siendo bastante limitada.</p>
+<p>En cambio, la relación entre los días adicionados y el porcentaje pendiente de pago no resultó significativa (rho = -0,0037; p = 0,243), por lo que no hay evidencia suficiente para afirmar que estas dos desviaciones estén asociadas entre sí. Esto muestra que una relación puede ser estadísticamente significativa sin ser necesariamente fuerte, sobre todo cuando se cuenta con una cantidad tan grande de observaciones como en este caso.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=49829fef">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Insights principales del desarollo de la estrategia</strong></p>
+<p>Los resultados muestran que las características categóricas de los contratos permiten diferenciar mejor algunos comportamientos de ejecución que el valor contractual por sí solo. La modalidad_de_contratacion fue una de las variables con los patrones más claros: en las adiciones de plazo, Licitación pública presentó la mayor proporción de contratos con adición, mientras que modalidades como Mínima cuantía, Contratación directa y Contratación régimen especial mostraron porcentajes menores.</p>
+<p>La modalidad también mostró diferencias importantes en el porcentaje pendiente de pago. Contratación directa, Contratación régimen especial y Contratación régimen especial (con ofertas) tuvieron medianas de 100% pendiente entre los contratos finalizados, mientras que Mínima cuantía y Selección abreviada subasta inversa tuvieron medianas prácticamente iguales a cero. De manera similar, las mayores proporciones de contratos finalizados sin liquidar se encontraron en Contratación régimen especial (con ofertas), Contratación régimen especial y Contratación directa.</p>
+<p>El sector también mostró diferencias en la frecuencia de adiciones de plazo. El sector Trabajo destacó porque combinó una proporción relativamente alta de contratos con adición con una cantidad considerable de observaciones, mientras que otros sectores presentaron porcentajes altos pero con un número menor de contratos, así que esos resultados hay que tomarlos con más precaución.</p>
+<p>En cuanto al destino_gasto, los contratos de Inversión tuvieron una proporción de contratos finalizados sin liquidar ligeramente mayor que los de Funcionamiento, aunque la diferencia entre estas dos categorías fue menor que la que se había visto entre modalidades de contratación, así que esta variable parece aportar más información complementaria que constituir un criterio fuerte por sí sola.</p>
+<p>Las variables cuantitativas, en cambio, mostraron asociaciones débiles. Aunque el valor del contrato presentó relaciones estadísticamente significativas tanto con los días adicionados como con el porcentaje pendiente de pago, las correlaciones fueron bajas, y tampoco se encontró una asociación significativa entre los días adicionados y el porcentaje pendiente, lo que indica que las desviaciones de plazo y de ejecución presupuestal representan señales distintas.</p>
+<p>En conjunto, esto sugiere que para focalizar la supervisión resulta más útil combinar varias características del contrato que usar una sola de manera aislada. En particular, la modalidad de contratación y el sector aparecen como los criterios más relevantes, mientras que el valor contractual puede servir como una característica complementaria. Estas relaciones, eso sí, se interpretan únicamente como asociaciones y no como evidencia de causalidad o de irregularidad.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=61e109af">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>No se utilizó la correlación de Pearson porque los scatterplots no mostraron relaciones aproximadamente lineales y las variables cuantitativas presentaron una fuerte asimetría. Por esta razón, se utilizó la correlación de Spearman en los contrastes realizados.</p>
 </div>
 </div>
 </div>
